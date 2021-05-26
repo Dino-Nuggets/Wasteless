@@ -19,9 +19,11 @@ FoodController.getFood = (req, res, next) => {
 
 FoodController.addFood = (req, res, next) => {
   const { item } = req.body;
+  // const { user } = req.cookies;
   // , type, quantity, date, price, expiration, status, preference, outcome
   models.Food.create({
     item,
+    // user,
     // type,
     // quantity,
     // date,

@@ -1,11 +1,20 @@
 const express = require('express');
-
+const UserController = require('./UserController');
 const FoodController = require('./FoodController');
 
 const router = express.Router();
+//login router
+router.post('/login', UserController.login, (req, res) => {
+  res.status(200).redirect('/');
+  })
+//signup router
+router.post('/signup', UserController.signup, (req, res) => {
+  res.status(200).redirect('/');
+})
 // get all food
 router.get('/', FoodController.getFood, (req, res) => {
   // sends data to frontend
+  // console.log(JSON.parse(res.locals.food));
   res.status(200).json(res.locals.food);
   // console.log(res.locals.food);
 });
