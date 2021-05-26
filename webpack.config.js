@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: './client/index.js',
@@ -24,7 +23,7 @@ module.exports = {
     ],
   },
   devServer: {
-    publicPath: '/',
+    publicPath: '/build',
     proxy: {
       '/api': 'http://localhost:3000',
     },

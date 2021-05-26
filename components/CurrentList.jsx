@@ -16,10 +16,11 @@ function CurrentList() {
     listOfDislikedItems: [],
     listOfDislikedItemNames: [],
   };
-
+  //react hook to save state using the keyword setState
   const [currState, setState] = useState(state);
+  useEffect(() => {//useEffect lets you use state and other React features without writing a class.//Similar to componentDidMountadn ComponentDidUpdate
 
-  useEffect(() => {
+
     fetch('/api/')
       .then((items) => {
         const data = items.json();

@@ -5,6 +5,7 @@ function Item(props) {
     <div className="ItemComponent">
       <span className="items">
         {props.id}. {props.itemName}{' '}
+{/* is the above formatting correct? */}
       </span>{' '}
       <div className="toBuyListBtnContainer">
         {/* bought button */}
@@ -34,7 +35,7 @@ function Item(props) {
           }}
         >
           {' '}
-          <i className="fa fa-ban" />{' '}
+          <i className="fa fa-ban" />{' '} //WHut the hell
         </button>
       </div>
     </div>
