@@ -14,11 +14,19 @@ mongoose
 
 const { Schema } = mongoose;
 
+// const User = new Schema({
+//   user: { type: String, default: ''}
+//   password: {type: String, default: ''}
+
+//   items: {}
+
+// });
+
 const foodSchema = new Schema({
   user: {type: String, default: ''},
   item: { type: String, default: ''},
   type: { type: String, default: '' },
-  quantity: { type: Number, default: 0 }, 
+  quantity: { type: Number, default: 0 },
   date: { type: Date, default: Date.now() },
   price: { type: Number, default: 0 },
   expiration: { type: Date, default: Date.now() + 12096e5 },
