@@ -13,29 +13,40 @@ class Login extends React.Component {
   constructor (props){
     super(props);
     this.signInFunc = this.signInFunc.bind(this);
+
+    this.state = {
+      loggedIn: false,
+    }
+    
   }
 
 
+ 
+  // const [loggedIn, setLoggedIn] = useState({loggedIn: });
+
   signInFunc = (userName, userPassword) => {
-    console.log('signing in');
+    console.log('signInfunc inside of Login.jsx');
 
     fetch('/login', {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ username: userName, password: userPassword })
     })
-      .then(response => response.json())
       .then(response => {
-        console.log('response received!', response);
+        
+        response.json()}) //does this send it before it reaches the redirect?
+      .then(response => {
+        console.log('Login.jsx fetch /login GET', response);
 
         // { _id: 123434234, username: tom, password: codesmith }
         // receives the user profile data (and user ID)
         // send user profile data to App state so we can access it in other components
-        this.props.setUserFunc(response._id, response.username);
+        // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        return <Redirect to="/homepage" />
+        this.setState({loggedIn: true})
+        
       })
       .catch(err => console.log(err));
     // fetch(`http://localhost:3000/user/?username=${userName}`)
@@ -60,8 +71,9 @@ class Login extends React.Component {
 
   render() {
     console.log('props', this.props);
-
+    if(this.state.loggedIn) return <Redirect to='/homepage'/>
     return (
+      
       <>
       <div>
         <h1>Log in</h1>
@@ -70,7 +82,6 @@ class Login extends React.Component {
         <div>
         <p>Don't have an account?</p>
         <Link to="/" >Sign Up</Link>
-        
       </div>
       </>
     );
