@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-
+import SideNavBar from './SideNavBar'
 function CurrentList() {
   const state = {
     listOfItems: [], // array to hold db objects

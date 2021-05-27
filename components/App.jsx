@@ -19,6 +19,11 @@ function App() {
         <Route component={SignUp} exact path="/" />
         <Route component={Login} exact path="/login" />
         <Route component={Homepage} exact path="/homepage" />
+        {/* <Route component={CurrentList} exact path="/CurrentList" /> */}
+        <Route component={PurchasedList} exact path="/purchased" />
+        <Route component={EatenList} exact path="/eaten" />
+        <Route component={DisposedList} exact path="/disposed" />
+
 
       </Switch>
     </div>
