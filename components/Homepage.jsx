@@ -12,6 +12,8 @@ function Homepage() {
       <SideNavBar />
 
       <Switch>
+        
+      
         <Route component={PurchasedList} exact path="/purchased" />
         <Route component={EatenList} exact path="/eaten" />
         <Route component={DisposedList} exact path="/disposed" />

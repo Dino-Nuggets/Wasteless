@@ -4,10 +4,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import Login from './Login.jsx'
-
+import Homepage from './Homepage'
 class SignUp extends React.Component {
   constructor (props){
     super(props);
@@ -21,15 +22,18 @@ class SignUp extends React.Component {
 
   signUpFunc = (userName, userPassword) => {
     console.log('signing up');
-
-    fetch('/signup', {
+   //entry route is api.js
+    fetch('/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ username: userName, password: userPassword })
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log('response', response)
+         response.json()
+          })
       .then(response => {
         console.log('response received!', response);
 
@@ -38,7 +42,7 @@ class SignUp extends React.Component {
         // send user profile data to App state so we can access it in other components
         this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-
+        return response.redirect('/homepage')
       })
       .catch(err => console.log(err));
   }

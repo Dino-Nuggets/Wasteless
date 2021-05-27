@@ -16,7 +16,7 @@ app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../ind
 app.use('/api', apiRouter);
 
 // route error handler is unknown
-app.use((req, res) => res.status(404).send("This is not the page you're looking for..."));
+app.use((req, res) => res.status(404).send("This is not the page you're looking for... "));
 
 // global error handler
 app.use((err, req, res, next) => {

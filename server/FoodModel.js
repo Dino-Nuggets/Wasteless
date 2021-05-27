@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const MONGO_URI =
-  'mongodb+srv://eileenlee115:codesmith@cluster0.jviqy.mongodb.net/scratch-project?retryWrites=true&w=majority';
+  'mongodb+srv://char:luxray@book-discussions.yu2gk.mongodb.net/wastelessbydn?retryWrites=true&w=majority';
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'scratch-project',
+    dbName: 'wastelessbydn',
   })
   .then(() => console.log('Connected to Mongo DB.'))
   .catch((err) => console.log(err));
@@ -23,9 +23,7 @@ const { Schema } = mongoose;
 // });
 
 const foodSchema = new Schema({
-  //user: { type: String, default: ''}
-  // password: {type: String, default: ''}
-  //user and password
+  user: {type: String, default: ''},
   item: { type: String, default: ''},
   type: { type: String, default: '' },
   quantity: { type: Number, default: 0 },
@@ -37,7 +35,8 @@ const foodSchema = new Schema({
   outcome: { type: String, default: ''},
 });
 
-const Food = mongoose.model('food', foodSchema,'food');
+
+const Food = mongoose.model('food', foodSchema);
 
 module.exports = {
   Food,
