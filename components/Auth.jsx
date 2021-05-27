@@ -40,7 +40,7 @@ class Auth extends Component {
           <p>
               Password:
               <input
-                onChange={(e) => this.setUserPassword(e.target.value)}
+                type="password" onChange={(e) => this.setUserPassword(e.target.value)}
               />
           </p>
           <button
