@@ -27,7 +27,7 @@ class Login extends React.Component {
   signInFunc = (userName, userPassword) => {
     console.log('signInfunc inside of Login.jsx');
 
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,8 +35,9 @@ class Login extends React.Component {
       body: JSON.stringify({ username: userName, password: userPassword })
     })
       .then(response => {
-        
-        response.json()}) //does this send it before it reaches the redirect?
+        console.log('this be the response', response);
+        // response.json()
+      })
       .then(response => {
         console.log('Login.jsx fetch /login GET', response);
 
@@ -45,7 +46,7 @@ class Login extends React.Component {
         // send user profile data to App state so we can access it in other components
         // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        this.setState({loggedIn: true})
+        this.setState(response);
         
       })
       .catch(err => console.log(err));

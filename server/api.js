@@ -7,7 +7,7 @@ const router = express.Router();
 //login router
 router.post('/login', UserController.login, (req, res) => {
   console.log('Final route');
-  res.status(200).redirect('/homepage');
+  res.status(200).json({ login: true })
   })
 //signup router
 router.post('/signup', UserController.signup, (req, res) => {
