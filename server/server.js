@@ -16,14 +16,14 @@ app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../ind
 app.use('/api', apiRouter);
 
 // route error handler is unknown
-app.use((req, res) => res.status(404).send("This is not the page you're looking for... ya wizard"));
+app.use((req, res) => res.status(404).send("This is not the page you're looking for... "));
 
 // global error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
-    message: { err: 'An error occurred ya dingus' },
+    message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign(defaultErr, err);
   console.log(errorObj.log);

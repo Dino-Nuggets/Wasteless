@@ -4,9 +4,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
-
+import Homepage from './Homepage'
 
 class Login extends React.Component {
   constructor (props){
@@ -34,7 +35,7 @@ class Login extends React.Component {
         // send user profile data to App state so we can access it in other components
         this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-
+        return <Redirect to="/homepage" />
       })
       .catch(err => console.log(err));
     // fetch(`http://localhost:3000/user/?username=${userName}`)

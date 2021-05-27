@@ -2,14 +2,17 @@ const express = require('express');
 const UserController = require('./UserController');
 const FoodController = require('./FoodController');
 
+
 const router = express.Router();
 //login router
 router.post('/login', UserController.login, (req, res) => {
-  res.status(200).redirect('/');
+  console.log('Final route');
+  res.status(200).redirect('/homepage');
   })
 //signup router
 router.post('/signup', UserController.signup, (req, res) => {
-  res.status(200).redirect('/');
+  console.log('About to redirect!');
+  res.status(200).redirect('/homepage');
 })
 // get all food
 router.get('/', FoodController.getFood, (req, res) => {
@@ -19,7 +22,7 @@ router.get('/', FoodController.getFood, (req, res) => {
   // console.log(res.locals.food);
 });
 
-// create/add food
+// create/add fooredirec
 router.post('/food', FoodController.addFood, (req, res) => res.status(200).json(res.locals.food));
 
 // delete food

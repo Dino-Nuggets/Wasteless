@@ -2,10 +2,11 @@ const models = require('./UserModel');
 const UserController = {};
 
 UserController.signup = (req, res, next) => {
-  const { user, password } = req.body;
+  console.log('we in signup controller');
+  const { username, password } = req.body;
 
 
-  models.User.create({ user, password})
+  models.User.create({ username, password})
   .then(() => {
   return next();
   })
@@ -19,9 +20,10 @@ UserController.signup = (req, res, next) => {
   };
 
 UserController.login = (req, res, next) => {
-  const { user, password } = req.body;
+  console.log('we in login controller');
+  const { username, password } = req.body;
 
-    models.User.findOne({ user, password})
+    models.User.findOne({ username, password})
     .then((data) => {
       console.log('We\'re in login')
       res.locals.user = data.user;
@@ -38,12 +40,13 @@ UserController.login = (req, res, next) => {
   )
 };
 
-UserController.setCookie =(req, res, next) => {
-  console.log('we made it to setDingus, ya cookie');
-  res.cookie('user', data.user);
-  return next();
-}
+// UserController.setCookie =(req, res, next) => {
+//   console.log('we made it to cookie');
+//   res.cookie('user', data.user);
+//   return next();
+// }
 
+//Cookie will never be invoked, the routing for the cookie above has been removed
 
 
 module.exports = UserController;
