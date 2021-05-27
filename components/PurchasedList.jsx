@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PurchasedItem from './PurchasedItem';
+import SideNavBar from './SideNavBar'
 
 function PurchasedList(props) {
   const [currState, setState] = useState(props.state);
@@ -34,12 +35,12 @@ function PurchasedList(props) {
       }).catch((err) => {
         console.log(err);
       });
-  
+
       setState((prevState) => {
         const itemNamesSlice = prevState.listOfPurchasedItemNames?.slice();
-  
+
         const filtered = itemNamesSlice?.filter((value) => value !== itemName);
-  
+
         return { ...prevState, listOfPurchasedItemNames: filtered };
       });
     }
@@ -53,16 +54,16 @@ function PurchasedList(props) {
         }).catch((err) => {
           console.log(err);
         });
-    
+
         setState((prevState) => {
           const itemNamesSlice = prevState.listOfPurchasedItemNames?.slice();
-    
+
           const filtered = itemNamesSlice?.filter((value) => value !== itemName);
-    
+
           return { ...prevState, listOfPurchasedItemNames: filtered };
         });
       }
-  
+
   const purchasedListArray = [];
   for (let i = 0; i < currState?.listOfPurchasedItemNames.length; i++) {
     purchasedListArray.push(
@@ -79,11 +80,14 @@ function PurchasedList(props) {
   }
 
   return (
+    <>
+   <SideNavBar />
     <div className="list">
       <h3>Purchased List</h3>
       {purchasedListArray}
 
     </div>
+</>
   );
 }
 

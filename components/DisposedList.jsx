@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DisposedItem from './DisposedItem';
-
+import SideNavBar from './SideNavBar'
 
 function DisposedList(props) {
     const [currState, setState] = useState(props.state);
@@ -42,12 +42,15 @@ function DisposedList(props) {
     }
 
     return (
+        <>
+            <SideNavBar />
         <div className="list">
             <h3>Disposed List</h3>
             <div>
                 {disposedListArray}
             </div>
         </div>
+        </>
     );
 }
 

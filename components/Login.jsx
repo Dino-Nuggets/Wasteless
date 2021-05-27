@@ -14,14 +14,14 @@ class Login extends React.Component {
     super(props);
     this.signInFunc = this.signInFunc.bind(this);
 
-    this.state = {
-      loggedIn: false,
-    }
-    
+    // this.state = {
+    //   loggedIn: false,
+    // }
+
   }
 
 
- 
+
   // const [loggedIn, setLoggedIn] = useState({loggedIn: });
 
   signInFunc = (userName, userPassword) => {
@@ -35,7 +35,7 @@ class Login extends React.Component {
       body: JSON.stringify({ username: userName, password: userPassword })
     })
       .then(response => {
-        
+
         response.json()}) //does this send it before it reaches the redirect?
       .then(response => {
         console.log('Login.jsx fetch /login GET', response);
@@ -45,8 +45,8 @@ class Login extends React.Component {
         // send user profile data to App state so we can access it in other components
         // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        this.setState({loggedIn: true})
-        
+        // this.setState({loggedIn: true})
+
       })
       .catch(err => console.log(err));
     // fetch(`http://localhost:3000/user/?username=${userName}`)
@@ -54,14 +54,14 @@ class Login extends React.Component {
       // .then(response => {
       //   console.log('response received!', response);
       //   const { user } = response;
-       
+
       //   if (userPassword === user.password) {
       //     // if password matches, setUser & changeView to Homepag
       //     this.props.setUserFunc(user._id, user.username);
       //     //redirect user to homepage
       //   } else {
       //     // if password doesn't match, changeView to signup
-          
+
       //   }
       // }
       // )
@@ -71,9 +71,9 @@ class Login extends React.Component {
 
   render() {
     console.log('props', this.props);
-    if(this.state.loggedIn) return <Redirect to='/homepage'/>
+    // if(this.state.loggedIn) return <Redirect to='/homepage'/>
     return (
-      
+
       <>
       <div>
         <h1>Log in</h1>

@@ -8,17 +8,16 @@ import DisposedList from './DisposedList';
 
 function Homepage() {
   return (
-    <div className="Homepage">
+    <div className="App">
       <SideNavBar />
 
+
       <Switch>
-        
-      
+        <Route component={CurrentList} exact path="/homepage" />
         <Route component={PurchasedList} exact path="/purchased" />
         <Route component={EatenList} exact path="/eaten" />
         <Route component={DisposedList} exact path="/disposed" />
-        <Route component={CurrentList} exact path="/currentList" /> 
-        </Switch>
+      </Switch>
     </div>
   );
 }

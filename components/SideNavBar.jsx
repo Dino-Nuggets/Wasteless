@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+//
 function SideNavBar() {
   return (
     <div className="nav">
       <h3>Navigation</h3>
-      <NavLink to="/" className="link" activeClassName="active" exact>
+      <NavLink to="/homepage" className="link" activeClassName="active" exact>
         {' '}
         <p> To Buy</p>{' '}
       </NavLink>

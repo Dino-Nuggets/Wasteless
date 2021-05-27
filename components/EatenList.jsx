@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import EatenItem from './EatenItem';
+import SideNavBar from './SideNavBar';
 
 function EatenList(props) {
   const [currState, setState] = useState(props.state);
 
-  
+
   useEffect(() => {
     fetch('/api/eaten')
       .then((items) => {
@@ -38,9 +39,9 @@ function EatenList(props) {
 
   //   setState((prevState) => {
   //     const itemNamesSlice = prevState.listOfLikedItemNames?.slice();
-  
+
   //       const filtered = itemNamesSlice?.filter((value) => value !== itemName);
-  
+
   //       return { ...prevState, listOfLikedItemNames: filtered };
   //   });
   // }
@@ -53,17 +54,17 @@ function EatenList(props) {
   //     }).catch((err) => {
   //       console.log(err);
   //     });
-  
+
   //     setState((prevState) => {
   //       const itemNamesSlice = prevState.listOfDislikedItemNames?.slice();
-  
+
   //       const filtered = itemNamesSlice?.filter((value) => value !== itemName);
-  
+
   //       return { ...prevState, listOfDislikedItemNames: filtered };
   //     });
   //   }
-    
-    
+
+
   const eatenListArray = [];
   for (let i = 0; i < currState?.listOfEatenItemNames.length; i++) {
     eatenListArray.push(
@@ -80,12 +81,15 @@ function EatenList(props) {
   }
 
   return (
+    <>
+      <SideNavBar />
     <div className="list">
       <h3>Eaten List</h3>
       <div>
         {eatenListArray}
       </div>
     </div>
+    </>
   );
 }
 
