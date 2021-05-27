@@ -3,37 +3,42 @@
   padding:0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #222725;
+  color: #141313;
 }
 
 h1, h3 {
   text-align: center;
-  color: #121113;
+  color: #ffffff;
 
 }
 
 h1 {
   font-size: 60px;
-  color: #F7F7F2;
+  color: 	#ffffff;
 }
 
 body {
   width: 100%;
-  background-color: #a5a58d;
+  background-color: #8b9dc3;
 }
 
+.signup {
+  display: flex;
+  justify-content: space-around;
+}
 .App {
   display: flex;
   justify-content: space-around;
+  width: 53%
 }
 
 .nav {
   display:flex;
   flex-direction: column;
-  width:25%;
-  border: #6b705c 2px solid;
+  width:63%;
+  border: #3b5998 2px solid;
   border-radius: 10px;
-  border-color: #F7F7F2;
+  border-color: #dfe3ee;
   padding: 10px;
   box-shadow:5px 5px 10px #222725;
 }
@@ -41,9 +46,9 @@ body {
 .list {
   display: flex;
   flex-direction: column;
-  border: #6b705c 2px solid;
+  border: #3b5998 2px solid;
   border-radius: 10px;
-  border-color: #F7F7F2;
+  border-color: #dfe3ee;
   width: 70%;
   padding: 10px;
   box-shadow:5px 5px 10px #222725;
@@ -55,19 +60,20 @@ body {
   border-radius: 10px;
   padding: 14px 25px;
   text-align: center;
-  background-color: #fefae0;
+  background-color: #f7f7f7;
   color: black;
   margin: 5px;
   box-shadow:5px 5px 10px #222725;
+  margin-left: 10px;
 }
 
 .link:active{
-  background-color: #6b705c;
-  box-shadow: inset 0px 0px 5px #c1c1c1;
+  background-color: #dfe3ee;
+  box-shadow: inset 0px 0px 5px #dfe3ee;
 }
 
 .link:hover{
-  background-color: #a5a58d;
+  background-color: #8b9dc3;
 }
 
 .link:visited{
@@ -79,7 +85,7 @@ body {
   grid-template-columns: 3fr 1fr;
 }
 .addItemBtn {
-  background-color: #b7b7a4;
+  background-color: #8b9dc3;
   border: none;
   padding: 10px;
   text-align: center;
@@ -94,11 +100,11 @@ body {
 }
 
 .addItemBtn:hover{
-  background-color: #a4a994;
+  background-color: #dfe3ee;
 
 }
 .addItemBtn:active{
-  background-color: #6b705c;
+  background-color: #3b5998;
   box-shadow: inset 0px 0px 5px #c1c1c1;
 
 }
@@ -117,7 +123,7 @@ body {
 
 .ItemComponent {
   border: solid black 1px;
-  background-color: #fefae0;
+  background-color: #f7f7f7;
   border-radius: 10px;
   padding: 10px 15px;
   text-align: center;
@@ -126,7 +132,7 @@ body {
 }
 
 .toBuyListBtn, .purchasedListBtn, .eatenListBtn{
-  background-color: #b7b7a4;
+  background-color: #8b9dc3;
   border: none;
   padding: 10px;
   text-align: center;
@@ -139,7 +145,7 @@ body {
 }
 
 .toBuyListBtn:hover, .purchasedListBtn:hover, .eatenListBtn:hover{
-  background-color: #6b705c;
+  background-color: #8b9dc3;
 }
 
 
@@ -148,14 +154,14 @@ body {
 }
 
 button:active {
-  background-color: #6b705c;
+  background-color: #3b5998;
   box-shadow: inset 5px 5px 5px #c1c1c1;
 }
 
 #likedBtn:focus{
-  background-color: green;
+  background-color: #3b5998;
 }
 
 #dislikedBtn:focus{
-  background-color: red;
+  background-color: #3b5998;
 }

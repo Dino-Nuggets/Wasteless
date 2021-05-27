@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-
+import SideNavBar from './SideNavBar'
 function CurrentList() {
   const state = {
     listOfItems: [], // array to hold db objects
@@ -15,6 +15,7 @@ function CurrentList() {
     listOfLikedItemNames: [],
     listOfDislikedItems: [],
     listOfDislikedItemNames: [],
+    username:'',
   };
   //react hook to save state using the keyword setState
   const [currState, setState] = useState(state);

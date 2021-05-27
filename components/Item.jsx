@@ -35,7 +35,7 @@ function Item(props) {
           }}
         >
           {' '}
-          <i className="fa fa-ban" />{' '} //WHut the hell
+          <i className="fa fa-ban" />{' '}
         </button>
       </div>
     </div>

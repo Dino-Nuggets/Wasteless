@@ -12,10 +12,13 @@ import Homepage from './Homepage'
 class SignUp extends React.Component {
   constructor (props){
     super(props);
-
+// state
+   this.state = {
+      username: '',
+      signIn: false,
+      }
     this.signUpFunc = this.signUpFunc.bind(this);
   }
-
 // fetch request for password/username as a POST
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 // use as template for fetch request
@@ -42,7 +45,9 @@ class SignUp extends React.Component {
         // send user profile data to App state so we can access it in other components
         // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        return response.redirect('/homepage')
+        console.log('username in sign up function of SignUp.jsx',userName)
+        this.setState({signIn: true});
+        this.setState({username: UserName});
       })
       .catch(err => console.log(err));
   }
@@ -50,6 +55,14 @@ class SignUp extends React.Component {
   render() {
     console.log('props in sign up', this.props);
     const { changeView } = this.props;
+    console.log('props', this.props);
+
+    if(this.state.signIn) return <Redirect to='/homepage'/>;
+        // to={{
+        //   pathname = '/homepage',
+        //   state={ username: this.state.username}
+        //     }}
+            // /> )
 
     return (
       <>

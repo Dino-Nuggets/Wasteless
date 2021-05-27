@@ -14,14 +14,14 @@ class Login extends React.Component {
     super(props);
     this.signInFunc = this.signInFunc.bind(this);
 
-    this.state = {
-      loggedIn: false,
-    }
-    
+    // this.state = {
+    //   loggedIn: false,
+    // }
+
   }
 
 
- 
+
   // const [loggedIn, setLoggedIn] = useState({loggedIn: });
 
   signInFunc = (userName, userPassword) => {
@@ -55,14 +55,14 @@ class Login extends React.Component {
       // .then(response => {
       //   console.log('response received!', response);
       //   const { user } = response;
-       
+
       //   if (userPassword === user.password) {
       //     // if password matches, setUser & changeView to Homepag
       //     this.props.setUserFunc(user._id, user.username);
       //     //redirect user to homepage
       //   } else {
       //     // if password doesn't match, changeView to signup
-          
+
       //   }
       // }
       // )
@@ -72,9 +72,9 @@ class Login extends React.Component {
 
   render() {
     console.log('props', this.props);
-    if(this.state.loggedIn) return <Redirect to='/homepage'/>
+    // if(this.state.loggedIn) return <Redirect to='/homepage'/>
     return (
-      
+
       <>
       <div>
         <h1>Log in</h1>
