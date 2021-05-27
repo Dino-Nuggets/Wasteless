@@ -8,14 +8,14 @@ import Homepage from './Homepage'
 function App() {
   return (
     <div className="App">
-      
-      
+
+
 
       <Switch>
         <Route component={SignUp} exact path="/" />
         <Route component={Login} exact path="/login" />
         <Route component={Homepage} exact path="/homepage" />
-      
+
       </Switch>
     </div>
   );

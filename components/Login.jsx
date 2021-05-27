@@ -33,9 +33,9 @@ class Login extends React.Component {
         // { _id: 123434234, username: tom, password: codesmith }
         // receives the user profile data (and user ID)
         // send user profile data to App state so we can access it in other components
-        this.props.setUserFunc(response._id, response.username);
+       // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        return <Redirect to="/homepage" />
+        //return <Redirect to="/homepage" />
       })
       .catch(err => console.log(err));
     // fetch(`http://localhost:3000/user/?username=${userName}`)
@@ -43,14 +43,14 @@ class Login extends React.Component {
       // .then(response => {
       //   console.log('response received!', response);
       //   const { user } = response;
-       
+
       //   if (userPassword === user.password) {
       //     // if password matches, setUser & changeView to Homepag
       //     this.props.setUserFunc(user._id, user.username);
       //     //redirect user to homepage
       //   } else {
       //     // if password doesn't match, changeView to signup
-          
+
       //   }
       // }
       // )
@@ -70,7 +70,7 @@ class Login extends React.Component {
         <div>
         <p>Don't have an account?</p>
         <Link to="/" >Sign Up</Link>
-        
+
       </div>
       </>
     );
