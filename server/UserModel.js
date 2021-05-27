@@ -15,7 +15,7 @@ mongoose
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  username: {type: String, default: ''},
+  username: {type: String, default: '', unique: true},
   password: {type: String, default: ''},
   budget: {type: Number, default: 0}
 });

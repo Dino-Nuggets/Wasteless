@@ -30,17 +30,17 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify({ username: userName, password: userPassword })
     })
-      .then(response => {
-        console.log('response', response)
-         response.json()
-          })
+      // .then(response => {
+      //   console.log('response', response)
+      //    response.json()
+      //     })
       .then(response => {
         console.log('response received!', response);
 
         // { _id: 123434234, username: tom, password: codesmith }
         // receives the user profile data (and user ID)
         // send user profile data to App state so we can access it in other components
-        this.props.setUserFunc(response._id, response.username);
+        // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
         return response.redirect('/homepage')
       })
