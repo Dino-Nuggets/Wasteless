@@ -24,10 +24,10 @@ describe('React unit tests', ()=>{
       });
 
       it('Renders an H3', () => {
-        expect(wrapper.type()).toEqual('h3');
-        expect(wrapper.text()).toEqual('Navigation');
-        expect(wrapper.type()).toEqual('p');
-        expect(wrapper.text()).toEqual('To Buy');
+        expect(wrapper.type()).toEqual('div');
+        expect(wrapper.text()).toEqual('Navigation  To Buy  Current Pantry Stock Eaten Disposed');
+        expect(wrapper.type()).toEqual('div');
+        expect(wrapper.text()).toEqual('Navigation  To Buy  Current Pantry Stock Eaten Disposed');
       });
 
 
