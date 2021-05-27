@@ -14,14 +14,14 @@ class Login extends React.Component {
     super(props);
     this.signInFunc = this.signInFunc.bind(this);
 
-    this.state = {
-      loggedIn: false,
-    }
-    
+    // this.state = {
+    //   loggedIn: false,
+    // }
+
   }
 
 
- 
+
   // const [loggedIn, setLoggedIn] = useState({loggedIn: });
 
   signInFunc = (userName, userPassword) => {
@@ -35,7 +35,7 @@ class Login extends React.Component {
       body: JSON.stringify({ username: userName, password: userPassword })
     })
       .then(response => {
-        
+
         response.json()}) //does this send it before it reaches the redirect?
       .then(response => {
         console.log('Login.jsx fetch /login GET', response);
@@ -43,16 +43,10 @@ class Login extends React.Component {
         // { _id: 123434234, username: tom, password: codesmith }
         // receives the user profile data (and user ID)
         // send user profile data to App state so we can access it in other components
-<<<<<<< HEAD
-       // this.props.setUserFunc(response._id, response.username);
-        // change view to homepage
-        //return <Redirect to="/homepage" />
-=======
         // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        this.setState({loggedIn: true})
-        
->>>>>>> 73a2432e9498a0495c13e4838806138a5f78e877
+        // this.setState({loggedIn: true})
+
       })
       .catch(err => console.log(err));
     // fetch(`http://localhost:3000/user/?username=${userName}`)
@@ -77,9 +71,9 @@ class Login extends React.Component {
 
   render() {
     console.log('props', this.props);
-    if(this.state.loggedIn) return <Redirect to='/homepage'/>
+    // if(this.state.loggedIn) return <Redirect to='/homepage'/>
     return (
-      
+
       <>
       <div>
         <h1>Log in</h1>
@@ -88,10 +82,6 @@ class Login extends React.Component {
         <div>
         <p>Don't have an account?</p>
         <Link to="/" >Sign Up</Link>
-<<<<<<< HEAD
-
-=======
->>>>>>> 73a2432e9498a0495c13e4838806138a5f78e877
       </div>
       </>
     );

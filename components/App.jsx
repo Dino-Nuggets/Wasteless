@@ -4,12 +4,16 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Homepage from './Homepage'
 
+import CurrentList from './CurrentList';
+import PurchasedList from './PurchasedList';
+import EatenList from './EatenList';
+import DisposedList from './DisposedList';
+
 
 function App() {
   return (
-    <div className="App">
-
-
+    <div className="signup">
+     {/* <Homepage /> */}
 
       <Switch>
         <Route component={SignUp} exact path="/" />

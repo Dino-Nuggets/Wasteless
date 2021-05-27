@@ -15,6 +15,7 @@ function CurrentList() {
     listOfLikedItemNames: [],
     listOfDislikedItems: [],
     listOfDislikedItemNames: [],
+    username:'',
   };
   //react hook to save state using the keyword setState
   const [currState, setState] = useState(state);
