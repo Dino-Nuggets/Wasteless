@@ -15,15 +15,15 @@ mongoose
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  username: {type: String, default: '', unique: true},
-  password: {type: String, default: ''},
+  username: {type: String, unique: true, required: true},
+  password: {type: String, required: true}, //beautiful
   budget: {type: Number, default: 0}
 });
 
 
 
-const User = mongoose.model('user', userSchema); //in the docs says only two parameters, originally provided with three parameters, the third being the schema name?
+module.exports = mongoose.model('user', userSchema); 
 
-module.exports = {
-  User,
-};
+// module.exports = {
+//   User,
+// };

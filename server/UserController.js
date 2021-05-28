@@ -1,12 +1,12 @@
-const models = require('./UserModel');
+const {models} = require('mongoose')
+const User = require('./UserModel');
 const UserController = {};
 
 UserController.signup = (req, res, next) => {
   console.log('we in signup controller');
   const { username, password } = req.body;
 
-
-  models.User.create({ username, password})
+  User.create({ username, password}) ///Changed from models.User
   .then(() => {
   return next();
   })
@@ -19,23 +19,31 @@ UserController.signup = (req, res, next) => {
   }));
   };
 
+// USER CONTROLLER LOGIN ALSO VERIFYS USER VALIDITY
 UserController.login = (req, res, next) => {
   console.log('we in login controller');
   const { username, password } = req.body;
-
-    models.User.findOne({ username, password})
-    .then((data) => {
-      console.log('We\'re in login')
-      res.locals.user = data.user;
-      console.log('(dingus.user) data.user', typeof data.user);
-      return next();
-    })
-    .catch((err)=>
-    next({
-        log:`UserController.login: ERROR: ${err}`,
-        message:{
-            err: 'Error: Invalid Credentials '
-        }
+  console.log(username, password)
+  User.find({username: username , password: password})///Changed from models.User
+  .then((data) => {
+    console.log('data is ', data);
+    console.log('Griff did something', res.locals)
+    if(data[0]){ 
+      res.locals.loggedIn = {loggedIn: true}; 
+      console.log(res.locals.loggedIn);
+    }else{
+        return console.log("Invalid credentials.")}
+    // if user is found, {loggedin: true}
+    // console.log('We\'re in login')
+    // console.log('data.user', typeof data.user);
+    return next();
+  })
+  .catch((err)=>
+  next({
+      log:`UserController.login: ERROR: ${err}`,
+      message:{
+          err: 'Error: Invalid Credentials '
+      }
     })
   )
 };
