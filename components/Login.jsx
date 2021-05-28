@@ -14,9 +14,9 @@ class Login extends React.Component {
     super(props);
     this.signInFunc = this.signInFunc.bind(this);
 
-    // this.state = {
-    //   loggedIn: false,
-    // }
+    this.state = {
+      loggedIn: false,
+    }
 
   }
 
@@ -35,18 +35,18 @@ class Login extends React.Component {
       body: JSON.stringify({ username: userName, password: userPassword })
     })
       .then(response => {
-        console.log('this be the response', response);
-        // response.json()
+        const data = response.json();
+        return data;
       })
-      .then(response => {
-        console.log('Login.jsx fetch /login GET', response);
+      .then(data => {
+        console.log('data is ', data);
 
         // { _id: 123434234, username: tom, password: codesmith }
         // receives the user profile data (and user ID)
         // send user profile data to App state so we can access it in other components
         // this.props.setUserFunc(response._id, response.username);
         // change view to homepage
-        this.setState(response);
+        this.setState(data);
         
       })
       .catch(err => console.log(err));
@@ -72,7 +72,7 @@ class Login extends React.Component {
 
   render() {
     console.log('props', this.props);
-    // if(this.state.loggedIn) return <Redirect to='/homepage'/>
+    if(this.state.loggedIn) return <Redirect to='/homepage'/>
     return (
 
       <>

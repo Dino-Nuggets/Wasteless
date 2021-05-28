@@ -7,7 +7,8 @@ const router = express.Router();
 //login router
 router.post('/login', UserController.login, (req, res) => {
   console.log('Final route');
-  res.status(200).json({ login: true })
+  console.log(res.locals.loggedIn)
+  res.status(200).json(res.locals.loggedIn);
   })
 //signup router
 router.post('/signup', UserController.signup, (req, res) => {
